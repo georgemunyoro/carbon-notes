@@ -76,7 +76,7 @@ export const listenForUserNoteUpdates = async () => {
   const query = db
     .collection('notes')
     .where('owner', '==', loggedInUser.uid)
-    .orderBy('createdAt');
+    .orderBy('createdAt', 'desc');
   query.onSnapshot(
     (querySnapshot) => {
       querySnapshot.docChanges().forEach((change) => {
